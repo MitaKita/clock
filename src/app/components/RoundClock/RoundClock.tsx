@@ -4,9 +4,9 @@ import { HOUR_MARKS, getCurrentTime } from "@/app/utils/clock-helpers";
 import "./style.css";
 
 interface RoundClockProps {
-  hourColor: string
-  minuteColor: string
-  secondColor: string
+  hourColor?: string
+  minuteColor?: string
+  secondColor?: string
 }
 const RoundClock = ({ hourColor = '#333', minuteColor = '#666', secondColor = '#e33' }: RoundClockProps) => {
   const hourRef = useRef<SVGLineElement>(null);
