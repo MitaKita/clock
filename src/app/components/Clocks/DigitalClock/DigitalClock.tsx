@@ -10,6 +10,7 @@ const DigitalClock = () => {
   const hourColor = useSelector((state: RootState) => state.clock.hourColor);
   const minuteColor = useSelector((state: RootState) => state.clock.minuteColor);
   const secondColor = useSelector((state: RootState) => state.clock.secondColor);
+  const backgroundColor = useSelector((state: RootState) => state.clock.backgroundColor);
 
   const [time, setTime] = useState(new Date());
 
@@ -23,7 +24,7 @@ const DigitalClock = () => {
   const seconds = pad(time.getSeconds());
 
   return (
-    <div className="flex flex-col items-center justify-center w-[700px] h-[240px] bg-black rounded-lg shadow-lg">
+    <div className="flex flex-col items-center justify-center w-[700px] h-[240px] rounded-lg shadow-lg" style={{ backgroundColor: backgroundColor }}>
       <span className="text-6xl font-mono text-green-400 select-none">
         <span style={{ color: hourColor }}>{hours}</span>:
         <span style={{ color: minuteColor }}>{minutes}</span>:
