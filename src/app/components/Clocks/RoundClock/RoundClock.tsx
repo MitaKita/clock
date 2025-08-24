@@ -7,12 +7,13 @@ import ClockFace from "../ClockFace";
 const RoundClock = () => {
   const clockType = useSelector((state: RootState) => state.clock.clockType);
 
+  const backgroundColor = useSelector((state: RootState) => state.clock.backgroundColor);
+  const clockFrame = useSelector((state: RootState) => state.clock.clockFrame);
+
   if (clockType !== ClockType.Round) {
     return <></>
   }
 
-  const backgroundColor = useSelector((state: RootState) => state.clock.backgroundColor);
-  const clockFrame = useSelector((state: RootState) => state.clock.clockFrame);
   return (
   <div className="flex flex-col items-center mt-10">
       <svg width="220" height="220" viewBox="0 0 200 200">
