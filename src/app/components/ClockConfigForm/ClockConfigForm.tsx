@@ -1,16 +1,12 @@
 'use client'
-import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import type { RootState } from '@/app/store';
 import { setHourColor, setMinuteColor, setSecondColor, setBackgroundColor, setClockFrame, setHourMarks } from '@/app/store/slices/clockSlice';
 import "./style.css";
 
-interface ClockConfigFormProps {
-  onConfigChange?: (config: { hourColor: string; minuteColor: string; secondColor: string }) => void
-}
-
-const ClockConfigForm = ({ onConfigChange }: ClockConfigFormProps) => {
+const ClockConfigForm = () => {
   const dispatch = useDispatch();
-  const { hourColor, minuteColor, secondColor, backgroundColor, clockFrame, hourMarks } = useSelector((state: any) => state.clock);
+  const { hourColor, minuteColor, secondColor, backgroundColor, clockFrame, hourMarks } = useSelector((state: RootState) => state.clock);
   return (
     <form className="clock-config-form">
       <div>
