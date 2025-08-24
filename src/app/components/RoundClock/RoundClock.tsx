@@ -1,16 +1,17 @@
 'use client'
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 import { HOUR_MARKS, getCurrentTime } from "@/app/utils/clock-helpers";
 import "./style.css";
 
 const RoundClock = () => {
-  const hourColor = useSelector((state: any) => state.clock.hourColor);
-  const minuteColor = useSelector((state: any) => state.clock.minuteColor);
-  const secondColor = useSelector((state: any) => state.clock.secondColor);
-  const backgroundColor = useSelector((state: any) => state.clock.backgroundColor);
-  const clockFrame = useSelector((state: any) => state.clock.clockFrame);
-  const hourMarks = useSelector((state: any) => state.clock.hourMarks);
+  const hourColor = useSelector((state: RootState) => state.clock.hourColor);
+  const minuteColor = useSelector((state: RootState) => state.clock.minuteColor);
+  const secondColor = useSelector((state: RootState) => state.clock.secondColor);
+  const backgroundColor = useSelector((state: RootState) => state.clock.backgroundColor);
+  const clockFrame = useSelector((state: RootState) => state.clock.clockFrame);
+  const hourMarks = useSelector((state: RootState) => state.clock.hourMarks);
   
   const hourRef = useRef<SVGLineElement>(null);
   const minuteRef = useRef<SVGLineElement>(null);
@@ -51,7 +52,7 @@ const RoundClock = () => {
       <line ref={minuteRef} x1="100" y1="100" x2="100" y2="55" stroke={minuteColor} strokeWidth={5} strokeLinecap="round" />
       <line ref={secondRef} x1="100" y1="100" x2="100" y2="55" stroke={secondColor} strokeWidth={1} strokeLinecap="round" />
       {/* Center dot */}
-      <circle cx="100" cy="100" r="6" fill="#333" />
+      <circle cx="100" cy="100" r="6" fill={clockFrame} />
     </svg>
   }
 
