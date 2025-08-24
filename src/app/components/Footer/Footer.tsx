@@ -1,8 +1,7 @@
 import React from "react";
-import "./style.css";
 
 const Footer = () => (
-  <footer className="footer">
+  <footer className="bg-[#222] text-white py-4 text-center mt-auto">
     <span>&copy; maritakontio.com</span>
   </footer>
 );

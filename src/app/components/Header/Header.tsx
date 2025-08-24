@@ -1,16 +1,15 @@
 
 import Link from "next/link";
 import React from "react";
-import "./style.css";
 
 const Header = () => (
-  <header className="header">
-    <nav className="header-nav">
-      <Link href="/" className="header-link">
-        Home
-      </Link>
-      <Link href="/clock" className="header-link">
+  <header className="bg-[#222] text-white py-4">
+    <nav className="flex justify-center gap-8">
+      <Link href="/" className="text-white no-underline font-bold">
         Clock
+      </Link>
+      <Link href="/about" className="text-white no-underline font-bold">
+        About
       </Link>
     </nav>
   </header>
