@@ -4,6 +4,7 @@ export enum ClockType {
   Round = "round",
   Square = "square",
   NoFrame = "noFrame",
+  Digital = "digital",
 }
 
 interface ClockState {

@@ -20,6 +20,7 @@ const ClockConfigForm = () => {
             <option value={ClockType.Round}>Round</option>
             <option value={ClockType.Square}>Square</option>
             <option value={ClockType.NoFrame}>No Frame</option>
+            <option value={ClockType.Digital}>Digital</option>
           </select>
         </label>
         <label className="font-bold mr-6 flex items-center gap-2">
