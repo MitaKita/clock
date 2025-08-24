@@ -1,16 +1,27 @@
 'use client'
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@/app/store';
-import { setHourColor, setMinuteColor, setSecondColor, setBackgroundColor, setClockFrame, setHourMarks } from '@/app/store/slices/clockSlice';
+import { setHourColor, setMinuteColor, setSecondColor, setBackgroundColor, setClockFrame, setHourMarks, setClockType } from '@/app/store/slices/clockSlice';
+import { ClockType } from '@/app/store/slices/clockSlice';
 import "./style.css";
 
 const ClockConfigForm = () => {
   const dispatch = useDispatch();
-  const { hourColor, minuteColor, secondColor, backgroundColor, clockFrame, hourMarks } = useSelector((state: RootState) => state.clock);
+  const { hourColor, minuteColor, secondColor, backgroundColor, clockFrame, hourMarks, clockType } = useSelector((state: RootState) => state.clock);
   return (
     <form className="clock-config-form">
       <div>
-        <h2>Select Colors</h2>
+        <label>
+          Type:
+          <select
+            value={clockType}
+            onChange={e => dispatch(setClockType(e.target.value as ClockType))}
+          >
+            <option value={ClockType.Round}>Round</option>
+            <option value={ClockType.Square}>Square</option>
+            <option value={ClockType.NoFrame}>No Frame</option>
+          </select>
+        </label>
         <label>
           Hour Color:{" "}
           <input

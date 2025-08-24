@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export enum ClockType {
+  Round = "round",
+  Square = "square",
+  NoFrame = "noFrame",
+}
+
 interface ClockState {
   hourColor: string;
   minuteColor: string;
@@ -7,6 +13,8 @@ interface ClockState {
   backgroundColor: string;
   clockFrame: string;
   hourMarks: string;
+  centerDotColor: string;
+  clockType: ClockType;
 }
 
 const initialState: ClockState = {
@@ -16,6 +24,8 @@ const initialState: ClockState = {
   backgroundColor: "#ffffff",
   clockFrame: "#333333",
   hourMarks: "#333333",
+  centerDotColor: "#333333",
+  clockType: ClockType.Round,
 };
 
 const clockSlice = createSlice({
@@ -40,6 +50,12 @@ const clockSlice = createSlice({
     setHourMarks(state, action: PayloadAction<string>) {
       state.hourMarks = action.payload;
     },
+    setCenterDotColor(state, action: PayloadAction<string>) {
+      state.centerDotColor = action.payload;
+    },
+    setClockType(state, action: PayloadAction<ClockType>) {
+      state.clockType = action.payload;
+    },
     setAllColors(state, action: PayloadAction<Partial<ClockState>>) {
       return { ...state, ...action.payload };
     },
@@ -53,6 +69,8 @@ export const {
   setBackgroundColor,
   setClockFrame,
   setHourMarks,
+  setCenterDotColor,
+  setClockType,
   setAllColors,
 } = clockSlice.actions;
 

@@ -5,6 +5,7 @@
 
 .clock-config-form label {
   margin-right: 1.5rem;
+  font-weight: bold;
 }
 
 .clock-config-form input[type="color"] {
