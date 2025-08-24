@@ -1,14 +1,17 @@
 'use client'
 import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 import { HOUR_MARKS, getCurrentTime } from "@/app/utils/clock-helpers";
 import "./style.css";
 
-interface RoundClockProps {
-  hourColor?: string
-  minuteColor?: string
-  secondColor?: string
-}
-const RoundClock = ({ hourColor = '#333', minuteColor = '#666', secondColor = '#e33' }: RoundClockProps) => {
+const RoundClock = () => {
+  const hourColor = useSelector((state: any) => state.clock.hourColor);
+  const minuteColor = useSelector((state: any) => state.clock.minuteColor);
+  const secondColor = useSelector((state: any) => state.clock.secondColor);
+  const backgroundColor = useSelector((state: any) => state.clock.backgroundColor);
+  const clockFrame = useSelector((state: any) => state.clock.clockFrame);
+  const hourMarks = useSelector((state: any) => state.clock.hourMarks);
+  
   const hourRef = useRef<SVGLineElement>(null);
   const minuteRef = useRef<SVGLineElement>(null);
   const secondRef = useRef<SVGLineElement>(null);
@@ -34,14 +37,14 @@ const RoundClock = ({ hourColor = '#333', minuteColor = '#666', secondColor = '#
       y1={mark.y1}
       x2={mark.x2}
       y2={mark.y2}
-      stroke="#333"
+      stroke={hourMarks}
       strokeWidth="4"
     />
   ))
   
   const getClock = () => {
     return <svg width="220" height="220" viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="90" fill="#fff" stroke="#333" strokeWidth="6" />
+      <circle cx="100" cy="100" r="90" fill={backgroundColor} stroke={clockFrame} strokeWidth="6" />
       {getHourMarks()}
       {/* Hour, minute, second hands */}
       <line ref={hourRef} x1="100" y1="100" x2="100" y2="55" stroke={hourColor} strokeWidth={7} strokeLinecap="round" />

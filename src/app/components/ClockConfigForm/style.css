@@ -1,0 +1,16 @@
+.clock-config-form {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.clock-config-form label {
+  margin-right: 1.5rem;
+}
+
+.clock-config-form input[type="color"] {
+  margin-right: 1rem;
+}
+
+.clock-config-form label:last-child input[type="color"] {
+  margin-right: 0;
+}
