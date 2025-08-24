@@ -1,3 +1,4 @@
+'use client'
 import { RootState } from "@/app/store";
 import { HOUR_MARKS, getCurrentTime } from "@/app/utils/clock-helpers";
 import { useEffect, useRef } from "react";
