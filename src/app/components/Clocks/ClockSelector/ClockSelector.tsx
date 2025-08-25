@@ -11,16 +11,14 @@ const ClockSelector = () => {
   const className =
     clockType === ClockType.Digital
       ? "w-[700px] h-[240px] flex items-center justify-center"
-      : "w-[240px] h-[240px] flex items-center justify-center bg-white rounded-lg shadow p-6";
+      : "w-[240px] h-[240px] flex items-center justify-center";
   return (
-    <div className="w-full flex justify-center">
-      <div className="p-4 bg-cyan-600 rounded-lg">
-        <div className={className}>
-          {clockType === ClockType.Round && <RoundClock />}
-          {clockType === ClockType.Square && <SquareClock />}
-          {clockType === ClockType.NoFrame && <NoFrameClock />}
-          {clockType === ClockType.Digital && <DigitalClock />}
-        </div>
+    <div className="w-full flex flex-col items-center justify-center min-h-[320px]">
+      <div className={className}>
+        {clockType === ClockType.Round && <RoundClock />}
+        {clockType === ClockType.Square && <SquareClock />}
+        {clockType === ClockType.NoFrame && <NoFrameClock />}
+        {clockType === ClockType.Digital && <DigitalClock />}
       </div>
     </div>
   );
