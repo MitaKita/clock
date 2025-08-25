@@ -1,8 +1,8 @@
 const About = () => {
   return (
-    <div className="flex flex-col items-center gap-8 m-6">
-      <h1 className="text-2xl font-bold">The clock application</h1>
-      <div className="max-w-2xl">
+    <div className="bg-gradient-to-br from-gray-100 to-blue-100 py-16 px-4 flex justify-center">
+      <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full flex flex-col items-center">
+        <h1 className="text-3xl font-bold mb-6 text-cyan-700">The Clock Application</h1>
         <p>
           This is an application built with Next.js and TypeScript. Next.js provides a powerful framework for building server-rendered React applications, while TypeScript adds static typing for improved code quality and maintainability. Together, they enable rapid development of scalable and robust web applications with modern best practices.
         </p>

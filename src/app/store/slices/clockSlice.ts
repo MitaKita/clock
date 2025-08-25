@@ -15,6 +15,7 @@ interface ClockState {
   clockFrame: string;
   hourMarks: string;
   centerDotColor: string;
+  dotColor: string;
   clockType: ClockType;
 }
 
@@ -26,6 +27,7 @@ const initialState: ClockState = {
   clockFrame: "#333333",
   hourMarks: "#333333",
   centerDotColor: "#333333",
+  dotColor: "#333333",
   clockType: ClockType.Round,
 };
 
@@ -57,6 +59,9 @@ const clockSlice = createSlice({
     setClockType(state, action: PayloadAction<ClockType>) {
       state.clockType = action.payload;
     },
+    setDotColor(state, action: PayloadAction<string>) {
+      state.dotColor = action.payload;
+    },
     setAllColors(state, action: PayloadAction<Partial<ClockState>>) {
       return { ...state, ...action.payload };
     },
@@ -71,6 +76,7 @@ export const {
   setClockFrame,
   setHourMarks,
   setCenterDotColor,
+  setDotColor,
   setClockType,
   setAllColors,
 } = clockSlice.actions;
